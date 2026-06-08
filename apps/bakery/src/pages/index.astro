@@ -1,0 +1,945 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="La Petite Miette | Artisan Bakery & Café">
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">🌾</span>
+        <span class="logo-text">La Petite Miette</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#story">Our Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#hours">Hours & Location</a>
+        <a href="#catering" class="btn btn-secondary">Catering</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section (Split Layout) -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-subtitle">Est. 2026 — Montreal</span>
+        <h1 class="hero-title">Slow fermentation. Artisan craftsmanship.</h1>
+        <p class="hero-description">
+          We believe in the beauty of simplicity. Every loaf of sourdough is wild-fermented for 36 hours, shaped by hand, and baked to dark, blistered perfection in our stone deck oven.
+        </p>
+        <div class="hero-actions">
+          <a href="#menu" class="btn btn-primary">Explore Today's Menu</a>
+          <a href="#hours" class="btn btn-outline">Visit the Café</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <img 
+          src="/images/hero.png" 
+          alt="Artisan sourdough loaves and croissants fresh from the oven at La Petite Miette" 
+          class="hero-image"
+        />
+        <div class="hero-image-overlay"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story Section -->
+  <section id="story" class="story">
+    <div class="story-container">
+      <div class="story-header">
+        <span class="section-tag">Craft & Heritage</span>
+        <h2>Baked with patience, served with joy</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="story-grid">
+        <div class="story-text">
+          <p>
+            At La Petite Miette, our journey starts with three humble ingredients: stone-ground organic flour, filtered water, and sea salt. Guided by ancient baking traditions, we cultivate our wild sourdough culture daily to give our bread its characteristic complex flavor and chewy open crumb.
+          </p>
+        </div>
+        <div class="story-text">
+          <p>
+            Beyond our bread, our pastry chefs hand-laminate French butter layers to create exceptionally light, golden viennoiseries. Combined with espresso roasted by local craftsmen, we invite you to sit back, slow down, and savor the details.
+          </p>
+        </div>
+      </div>
+      <div class="story-features">
+        <div class="feature-item">
+          <div class="feature-icon">⏱️</div>
+          <h3>36-Hour Rise</h3>
+          <p>Slow fermentation makes our bread easier to digest and incredibly flavorful.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🌾</div>
+          <h3>Organic Flour</h3>
+          <p>Sourced directly from heritage grain farmers in the valley.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🧈</div>
+          <h3>AOP Butter</h3>
+          <p>Laminated with premium butter for perfect pastry layers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="menu">
+    <div class="menu-container">
+      <div class="menu-header">
+        <span class="section-tag">Our Offerings</span>
+        <h2>Fresh From the Deck</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="menu-sections-grid">
+        <!-- Breads (With Image) -->
+        <div class="menu-card menu-card-featured">
+          <div class="menu-card-image-wrapper">
+            <img src="/images/menu_bread.png" alt="Freshly baked round sourdough bread loaf" />
+          </div>
+          <div class="menu-card-content">
+            <h3>Our Bread Selection</h3>
+            <ul class="menu-list">
+              <li class="menu-item">
+                <div class="menu-item-header">
+                  <span class="menu-item-name">Country Sourdough <span class="tag">Vegan</span></span>
+                  <span class="menu-item-price">$8.50</span>
+                </div>
+                <p class="menu-item-desc">Our signature loaf. Bold crust, open crumb, mild tangy finish.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-header">
+                  <span class="menu-item-name">Seeded Levain <span class="tag">Vegan</span></span>
+                  <span class="menu-item-price">$9.50</span>
+                </div>
+                <p class="menu-item-desc">Country loaf rolled in toasted organic sesame, flax, and sunflower seeds.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-header">
+                  <span class="menu-item-name">Cranberry Walnut Sourdough</span>
+                  <span class="menu-item-price">$10.00</span>
+                </div>
+                <p class="menu-item-desc">A perfect balance of sweet dried cranberries and toasted walnuts.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Viennoiserie & Coffee (With Image) -->
+        <div class="menu-card menu-card-featured reverse">
+          <div class="menu-card-content">
+            <h3>Specialty Coffee & Pastry</h3>
+            <ul class="menu-list">
+              <li class="menu-item">
+                <div class="menu-item-header">
+                  <span class="menu-item-name">Classic Croissant <span class="tag">Vegetarian</span></span>
+                  <span class="menu-item-price">$4.25</span>
+                </div>
+                <p class="menu-item-desc">Light, flaky, multiple layers of premium French butter.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-header">
+                  <span class="menu-item-name">Pain au Chocolat <span class="tag">Vegetarian</span></span>
+                  <span class="menu-item-price">$4.75</span>
+                </div>
+                <p class="menu-item-desc">Flaky laminated dough filled with two batons of dark Belgian chocolate.</p>
+              </li>
+              <li class="menu-item">
+                <div class="menu-item-header">
+                  <span class="menu-item-name">Espresso / Rosetta Latte</span>
+                  <span class="menu-item-price">$4.50</span>
+                </div>
+                <p class="menu-item-desc">Espresso made with locally roasted heritage beans, velvety textured milk.</p>
+              </li>
+            </ul>
+          </div>
+          <div class="menu-card-image-wrapper">
+            <img src="/images/menu_coffee.png" alt="A hot specialty espresso latte with rosetta latte art" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hours & Location -->
+  <section id="hours" class="hours-location">
+    <div class="hours-container">
+      <div class="hours-grid">
+        <div class="hours-info">
+          <span class="section-tag">Visit Us</span>
+          <h2>Where to find us</h2>
+          <div class="divider align-left"></div>
+          <p class="location-desc">We are nestled in the heart of Mile End. Come in for warm loaves, fresh filter coffee, and a seat by the window.</p>
+          
+          <table class="hours-table">
+            <tr>
+              <td>Wednesday – Friday</td>
+              <td>7:30 AM – 4:00 PM</td>
+            </tr>
+            <tr>
+              <td>Saturday – Sunday</td>
+              <td>8:00 AM – 3:00 PM</td>
+            </tr>
+            <tr>
+              <td>Monday – Tuesday</td>
+              <td>Closed for baking research</td>
+            </tr>
+          </table>
+
+          <div class="address-box">
+            <p class="address-title">Address</p>
+            <p class="address-text">438 Rue de l’Ancienne Boulangerie<br />Montreal, QC H2W 1Y4</p>
+            <p class="address-phone">+1 (514) 555-0182</p>
+          </div>
+        </div>
+
+        <div class="map-card">
+          <!-- Styled CSS Map Illustration -->
+          <div class="map-mockup">
+            <div class="map-grid-pattern"></div>
+            <div class="map-road-1"></div>
+            <div class="map-road-2"></div>
+            <div class="map-pin">
+              <span class="pin-marker">🌾</span>
+              <div class="pin-pulse"></div>
+            </div>
+            <div class="map-label">La Petite Miette</div>
+          </div>
+          <div class="map-footer">
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-full">Get Directions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Catering Contact Form -->
+  <section id="catering" class="catering">
+    <div class="catering-container">
+      <div class="catering-card">
+        <div class="catering-header">
+          <span class="section-tag">Event Inquiries</span>
+          <h2>Catering & Custom Orders</h2>
+          <p>Planning an event, wedding, or office gathering? We offer custom bread selections, large pastry platters, and mobile coffee setups. Contact us below to coordinate details.</p>
+        </div>
+        <form class="catering-form" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" required placeholder="Jean Dupont" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required placeholder="jean@example.com" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="event-date">Event Date</label>
+              <input type="date" id="event-date" name="event-date" required />
+            </div>
+            <div class="form-group">
+              <label for="service-type">Order Type</label>
+              <select id="service-type" name="service-type">
+                <option value="pastries">Pastry & Viennoiserie Platters</option>
+                <option value="breads">Artisan Sourdough Wholesale</option>
+                <option value="full">Full Café Catering Setup</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Your Requirements</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Tell us about your event, guest count, and specific requests..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">Submit Inquiry</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h3>La Petite Miette</h3>
+        <p>Slow bread, good vibes, cozy conversations.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#story">Story</a>
+        <a href="#menu">Menu</a>
+        <a href="#hours">Location</a>
+        <a href="#catering">Catering</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 La Petite Miette. Built statically with Astro, zero JS.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* Navigation Header styles */
+  .header {
+    background-color: rgba(250, 246, 240, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  .logo-icon {
+    font-size: 1.75rem;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .nav-links a:not(.btn) {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+  .nav-links a:not(.btn):hover {
+    color: var(--color-primary);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid transparent;
+  }
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+  }
+  .btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-text);
+  }
+  .btn-secondary:hover {
+    filter: brightness(0.95);
+  }
+  .btn-outline {
+    border-color: var(--color-border);
+    color: var(--color-text);
+  }
+  .btn-outline:hover {
+    background-color: var(--color-bg-alt);
+    border-color: var(--color-text-muted);
+  }
+  .btn-full {
+    display: block;
+    width: 100%;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 4rem 2rem;
+    background-color: var(--color-bg-alt);
+  }
+  .hero-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero-subtitle {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-size: clamp(2.5rem, 4vw, 3.75rem);
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+  }
+  .hero-description {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .hero-image-wrapper {
+    position: relative;
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    aspect-ratio: 1 / 1.1;
+    box-shadow: var(--shadow-lg);
+  }
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .hero-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(42, 31, 27, 0) 60%, rgba(42, 31, 27, 0.2) 100%);
+  }
+
+  /* Section Styles */
+  .section-tag {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+    display: inline-block;
+  }
+  .divider {
+    height: 3px;
+    width: 60px;
+    background-color: var(--color-secondary);
+    margin: 1.25rem auto 0 auto;
+    border-radius: 2px;
+  }
+  .divider.align-left {
+    margin-left: 0;
+  }
+
+  /* Story Section */
+  .story {
+    padding: 8rem 2rem;
+    background-color: var(--color-bg);
+  }
+  .story-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .story-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  .story-header h2 {
+    font-size: 2.5rem;
+  }
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto 5rem auto;
+  }
+  .story-text p {
+    font-size: 1.1rem;
+  }
+  .story-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 2rem;
+  }
+  .feature-item {
+    background-color: var(--color-bg-alt);
+    padding: 2.5rem 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--color-border);
+  }
+  .feature-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
+  }
+  .feature-item h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+  }
+  .feature-item p {
+    font-size: 0.95rem;
+  }
+
+  /* Menu Section */
+  .menu {
+    padding: 8rem 2rem;
+    background-color: var(--color-bg-alt);
+  }
+  .menu-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .menu-header {
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+  .menu-header h2 {
+    font-size: 2.5rem;
+  }
+  .menu-sections-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  }
+  .menu-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--color-border);
+  }
+  .menu-card.reverse {
+    grid-template-columns: 1.2fr 1fr;
+  }
+  .menu-card-image-wrapper {
+    height: 100%;
+    min-height: 350px;
+    position: relative;
+    overflow: hidden;
+  }
+  .menu-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+  }
+  .menu-card:hover .menu-card-image-wrapper img {
+    transform: scale(1.03);
+  }
+  .menu-card-content {
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .menu-card-content h3 {
+    font-size: 1.85rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+  .menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+  .menu-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.35rem;
+  }
+  .menu-item-name {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .menu-item-name .tag {
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    background-color: var(--color-bg-alt);
+    color: var(--color-primary);
+    padding: 0.15rem 0.5rem;
+    border-radius: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .menu-item-price {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    color: var(--color-primary);
+  }
+  .menu-item-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Hours & Location Section */
+  .hours-location {
+    padding: 8rem 2rem;
+    background-color: var(--color-bg);
+  }
+  .hours-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .hours-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .hours-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .location-desc {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem;
+  }
+  .hours-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 3rem;
+  }
+  .hours-table td {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 1rem;
+  }
+  .hours-table tr td:last-child {
+    text-align: right;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+  .address-box {
+    padding-top: 1rem;
+  }
+  .address-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+  .address-text {
+    font-size: 1.15rem;
+    font-style: normal;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  .address-phone {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  /* Map Mockup */
+  .map-card {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+  .map-mockup {
+    height: 350px;
+    background-color: #ECE7DE;
+    position: relative;
+    overflow: hidden;
+  }
+  .map-grid-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(#DFD8CD 1px, transparent 1px),
+      linear-gradient(90deg, #DFD8CD 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.5;
+  }
+  .map-road-1 {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background-color: #F8F5F0;
+    top: 45%;
+    transform: translateY(-50%) rotate(-5deg);
+  }
+  .map-road-2 {
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    background-color: #F8F5F0;
+    left: 40%;
+    transform: translateX(-50%) rotate(10deg);
+  }
+  .map-pin {
+    position: absolute;
+    top: 45%;
+    left: 42%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+  .pin-marker {
+    font-size: 2.25rem;
+    display: block;
+    animation: float 2.5s ease-in-out infinite;
+  }
+  .pin-pulse {
+    position: absolute;
+    width: 18px;
+    height: 8px;
+    background-color: rgba(42, 31, 27, 0.2);
+    border-radius: 50%;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+  }
+  .map-label {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    background-color: var(--color-text);
+    color: var(--color-white);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+    white-space: nowrap;
+  }
+  .map-footer {
+    padding: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+    100% { transform: translateY(0); }
+  }
+
+  /* Catering Section */
+  .catering {
+    padding: 8rem 2rem;
+    background-color: var(--color-bg-alt);
+  }
+  .catering-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .catering-card {
+    background-color: var(--color-white);
+    padding: 4.5rem;
+    border-radius: var(--border-radius-lg);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-lg);
+  }
+  .catering-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+  .catering-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  .catering-header p {
+    font-size: 1.05rem;
+  }
+  .catering-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.85rem 1rem;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border-radius: var(--border-radius);
+    transition: var(--transition-smooth);
+    width: 100%;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background-color: var(--color-white);
+    box-shadow: 0 0 0 3px rgba(197, 137, 103, 0.15);
+  }
+  .btn-submit {
+    align-self: flex-start;
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+  }
+
+  /* Footer */
+  .footer {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+    padding: 5rem 2rem 3rem 2rem;
+    margin-top: auto;
+  }
+  .footer-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+  }
+  .footer-brand h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+  .footer-brand p {
+    color: #A39691;
+    font-size: 1.05rem;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-end;
+  }
+  .footer-links a {
+    color: #A39691;
+    font-size: 1rem;
+  }
+  .footer-links a:hover {
+    color: var(--color-secondary);
+  }
+  .footer-bottom {
+    grid-column: 1 / -1;
+    border-top: 1px solid #3E312D;
+    padding-top: 2rem;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .footer-bottom p {
+    color: #7A6D68;
+    font-size: 0.85rem;
+  }
+
+  /* Responsive Design Media Queries */
+  @media (max-width: 992px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+    .hero-content {
+      align-items: center;
+    }
+    .hero-actions {
+      justify-content: center;
+    }
+    .hero-image-wrapper {
+      max-width: 500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .story-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .story-features {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .menu-card,
+    .menu-card.reverse {
+      grid-template-columns: 1fr;
+    }
+    .menu-card-image-wrapper {
+      min-height: 250px;
+    }
+    .hours-grid {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+    .map-card {
+      max-width: 500px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .nav-container {
+      flex-direction: column;
+      gap: 1.25rem;
+      padding: 1rem;
+    }
+    .nav-links {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .catering-card {
+      padding: 2.5rem 1.5rem;
+    }
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+    .footer-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+      gap: 3rem;
+    }
+    .footer-links {
+      align-items: center;
+    }
+  }
+</style>
