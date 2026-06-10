@@ -66,3 +66,5 @@ deno.lock
 # builds
 .vercel
 dist
+
+node_modules
