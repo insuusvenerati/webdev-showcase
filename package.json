@@ -14,6 +14,10 @@
     "dev:landscaping": "pnpm --filter landscaping dev",
     "build:landscaping": "pnpm --filter landscaping build",
     "preview:landscaping": "pnpm --filter landscaping preview",
+    "dev:with-cms": "pnpm --filter with-cms dev",
+    "build:with-cms": "pnpm --filter with-cms build",
+    "preview:with-cms": "pnpm --filter with-cms preview",
+    "generate-types:with-cms": "pnpm --filter with-cms generate-types",
     "dev": "pnpm --filter \"*\" --parallel dev",
     "build": "pnpm --filter \"*\" build",
     "preview": "pnpm --filter \"*\" --parallel preview"
