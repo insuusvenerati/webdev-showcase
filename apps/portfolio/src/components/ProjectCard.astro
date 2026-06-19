@@ -1,0 +1,183 @@
+---
+import type { Project } from "../lib/projects";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+const { businessName, industry, headline, description, outcomes, url, colors } =
+  project;
+
+// Card preview is tinted with the project's brand palette — no image assets.
+const previewStyle = `background: linear-gradient(135deg, ${colors.from} 0%, ${colors.to} 100%); color: ${colors.text};`;
+---
+
+<article class="card">
+  <div class="preview" style={previewStyle}>
+    <span class="preview-industry">{industry}</span>
+    <span class="preview-mark" aria-hidden="true">{businessName.charAt(0)}</span>
+  </div>
+
+  <div class="body">
+    <div class="heading">
+      <span class="kicker">{businessName}</span>
+      <h3>{headline}</h3>
+    </div>
+
+    <p class="description">{description}</p>
+
+    <ul class="outcomes">
+      {outcomes.map((outcome) => (
+        <li>
+          <span class="check" aria-hidden="true">✓</span>
+          {outcome}
+        </li>
+      ))}
+    </ul>
+
+    <a class="view" href={url} target="_blank" rel="noopener noreferrer">
+      View live site <span aria-hidden="true">↗</span>
+    </a>
+  </div>
+</article>
+
+<style>
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-border-strong);
+    background: var(--color-surface-hover);
+    box-shadow: var(--shadow-md);
+  }
+
+  .preview {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  /* Soft texture so flat brand colors still feel like a real preview. */
+  .preview::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.18), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.18), transparent 45%);
+    pointer-events: none;
+  }
+
+  .preview-industry {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.18);
+    color: inherit;
+    backdrop-filter: blur(4px);
+  }
+
+  .preview-mark {
+    font-family: var(--font-display);
+    font-size: 4.5rem;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0.92;
+  }
+
+  .body {
+    padding: 24px 24px 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+  }
+
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .kicker {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  .heading h3 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+    color: var(--color-text);
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .outcomes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 2px;
+  }
+
+  .outcomes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  .check {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(124, 245, 192, 0.12);
+    color: var(--color-accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .view {
+    margin-top: auto;
+    padding-top: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    border-top: 1px solid var(--color-border);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding-top: 16px;
+  }
+
+  .view:hover {
+    color: var(--color-accent);
+  }
+</style>

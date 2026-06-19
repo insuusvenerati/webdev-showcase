@@ -1,0 +1,825 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { projects, industries } from '../lib/projects';
+import { site } from '../lib/site';
+
+const { brand, contact, pricing, inclusions, process, faq, trust } = site;
+
+// Inclusion icons live inline so there are zero image/font-icon dependencies.
+const iconPaths: Record<string, string> = {
+  design:
+    "M4 5a1 1 0 0 1 1-1h6a8 8 0 0 1 0 16H5a1 1 0 0 1-1-1V5Z M8 9h6",
+  hosting:
+    "M3 5h18v6H3z M3 13h18v6H3z M7 8h.01 M7 16h.01",
+  domain:
+    "M12 3v18 M3 7h18 M3 12h18 M3 17h18",
+  seo:
+    "M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z M21 21l-4.3-4.3",
+  updates:
+    "M4 4v6h6 M20 20v-6h-6 M5 14a8 8 0 0 0 13.5 3 M19 10A8 8 0 0 0 5.5 7",
+  copy:
+    "M6 4h9a3 3 0 0 1 3 3v13 M18 20H9a3 3 0 0 1-3-3V4 M9 9h6 M9 13h4",
+  camera:
+    "M4 8a2 2 0 0 1 2-2h2l1.5-2h5L18 6h0a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8Z M12 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z",
+};
+---
+
+<Layout title={`${brand.name} — ${brand.tagline}`}>
+  <!-- Navigation Header -->
+  <header class="header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 100 100" width="22" height="22" aria-hidden="true">
+            <path d="M52 16 L20 56 H44 L36 84 L80 40 H56 Z" fill="currentColor" />
+          </svg>
+        </span>
+        <span class="brand-text">{brand.name}</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#included">What’s included</a>
+        <a href="#work">Work</a>
+        <a href="#process">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="btn btn-primary btn-sm">Get a free quote</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <span class="eyebrow">{contact.serviceArea} · serving local businesses</span>
+        <h1 class="hero-title">
+          A website that brings you<br />
+          <span class="grad">more customers</span> — fully done for you.
+        </h1>
+        <p class="hero-desc">
+          I build, write, and photograph professional websites for local
+          businesses. Design, copy, photos, hosting, your domain, and local SEO
+          are all included in one flat monthly fee — no big upfront cost, and you
+          never touch a thing.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Get a free quote</a>
+          <a href="#work" class="btn btn-outline">See recent work</a>
+        </div>
+        <p class="hero-price">
+          <span>{pricing.startingLabel}</span>
+          <strong>${pricing.price}</strong>
+          <span>{pricing.cadence}</span>
+          — everything included.
+        </p>
+      </div>
+    </section>
+
+    <!-- Trust strip -->
+    <section class="trust">
+      <div class="container trust-grid">
+        {
+          trust.map((stat) => (
+            <div class="trust-item">
+              <span class="trust-value">{stat.value}</span>
+              <span class="trust-label">{stat.label}</span>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- What's included -->
+    <section id="included" class="included">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What’s included</span>
+          <h2>One price. Everything handled.</h2>
+          <p class="section-sub">
+            Most web shops charge a big build fee and then leave you to figure
+            out hosting, domains, and updates. I do the lot — for one monthly
+            subscription.
+          </p>
+        </div>
+        <div class="included-grid">
+          {
+            inclusions.map((item) => (
+              <div class="inclusion">
+                <span class="inclusion-icon">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d={iconPaths[item.icon]} />
+                  </svg>
+                </span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section id="work" class="work">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Recent work</span>
+          <h2>Websites that work as hard as you do.</h2>
+          <p class="section-sub">
+            A few of the local businesses I’ve helped. Each one is built to be
+            found on Google, look professional on every phone, and turn visitors
+            into paying customers.
+          </p>
+        </div>
+        <div class="industries">
+          {
+            industries.map((industry) => <span class="industry-chip">{industry}</span>)
+          }
+        </div>
+        <div class="grid">
+          {projects.map((project) => <ProjectCard project={project} />)}
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="process" class="process">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">How it works</span>
+          <h2>From first chat to launch in about two weeks.</h2>
+        </div>
+        <div class="process-grid">
+          {
+            process.map((step) => (
+              <div class="step">
+                <span class="step-num">{step.step}</span>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="pricing">
+      <div class="container pricing-inner">
+        <div class="section-head section-head--left">
+          <span class="eyebrow">Pricing</span>
+          <h2>Simple, all-inclusive, and risk-free.</h2>
+          <p class="section-sub">
+            {pricing.note}
+          </p>
+        </div>
+        <div class="price-card">
+          <span class="price-highlight">{pricing.highlight}</span>
+          <div class="price-figure">
+            <span class="price-from">{pricing.startingLabel}</span>
+            <span class="price-amount">${pricing.price}</span>
+            <span class="price-cadence">{pricing.cadence}</span>
+          </div>
+          <ul class="price-list">
+            <li>Custom-designed website</li>
+            <li>All copywriting & photography</li>
+            <li>Hosting, domain & SSL</li>
+            <li>Local SEO setup</li>
+            <li>Up to 2 content updates / month</li>
+            <li>Fast, friendly support</li>
+          </ul>
+          <a href="#contact" class="btn btn-primary btn-block">Get started</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Questions</span>
+          <h2>Good questions, straight answers.</h2>
+        </div>
+        <div class="faq-list">
+          {
+            faq.map((item) => (
+              <details class="faq-item">
+                <summary>
+                  <span>{item.question}</span>
+                  <span class="faq-toggle" aria-hidden="true">+</span>
+                </summary>
+                <p>{item.answer}</p>
+              </details>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+      <div class="container contact-inner">
+        <h2>Let’s get your business online.</h2>
+        <p>
+          Tell me about your business and I’ll put together a free, no-pressure
+          quote. Most sites go from first chat to launch in about two weeks.
+        </p>
+        <div class="contact-actions">
+          <a class="btn btn-primary btn-lg" href={`mailto:${contact.email}`}>Email {brand.ownerName.split(' ')[0]}</a>
+          <a class="btn btn-outline btn-lg" href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`}>Call {contact.phone}</a>
+        </div>
+        <p class="contact-area">Serving {contact.serviceArea}.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 100 100" width="18" height="18" aria-hidden="true">
+            <path d="M52 16 L20 56 H44 L36 84 L80 40 H56 Z" fill="currentColor" />
+          </svg>
+        </span>
+        <span>{brand.name}</span>
+      </div>
+      <div class="footer-links">
+        <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        <a href={`tel:${contact.phone.replace(/[^+\d]/g, "")}`}>{contact.phone}</a>
+        <span>© {new Date().getFullYear()} {brand.name}</span>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .section-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .section-head--left {
+    text-align: left;
+    margin-left: 0;
+  }
+
+  .section-head h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    color: var(--color-text);
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-size: 0.98rem;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+  }
+
+  .btn-sm { padding: 8px 16px; font-size: 0.9rem; }
+  .btn-lg { padding: 15px 30px; font-size: 1.05rem; }
+  .btn-block { width: 100%; }
+
+  .btn-primary {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-white);
+    transform: translateY(-1px);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--color-border-strong);
+    color: var(--color-text);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  /* ---------- Header ---------- */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(11, 15, 25, 0.72);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .brand-mark {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+    color: var(--color-bg);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  .nav-links a:hover {
+    color: var(--color-text);
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    padding: 88px 0 64px;
+  }
+
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 780px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.08;
+    color: var(--color-text);
+  }
+
+  .grad {
+    background: linear-gradient(120deg, var(--color-accent), var(--color-accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-desc {
+    font-size: 1.18rem;
+    max-width: 640px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+
+  .hero-price {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: var(--color-text-dim);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+
+  .hero-price strong {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  /* ---------- Trust strip ---------- */
+  .trust {
+    padding: 24px 0 8px;
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding: 28px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    padding: 8px;
+  }
+
+  .trust-value {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+
+  .trust-label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  /* ---------- Included ---------- */
+  .included {
+    padding: 88px 0;
+  }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .inclusion {
+    padding: 28px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    transition: var(--transition-smooth);
+  }
+
+  .inclusion:hover {
+    border-color: var(--color-border-strong);
+    transform: translateY(-2px);
+  }
+
+  .inclusion-icon {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: rgba(124, 245, 192, 0.10);
+    color: var(--color-accent);
+    margin-bottom: 16px;
+  }
+
+  .inclusion h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    color: var(--color-text);
+  }
+
+  .inclusion p {
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Work ---------- */
+  .work {
+    padding: 24px 0 88px;
+  }
+
+  .industries {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+
+  .industry-chip {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+  }
+
+  /* ---------- Process ---------- */
+  .process {
+    padding: 88px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .step {
+    padding: 28px 24px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+  }
+
+  .step-num {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 12px;
+  }
+
+  .step h3 {
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    color: var(--color-text);
+  }
+
+  .step p {
+    font-size: 0.92rem;
+  }
+
+  /* ---------- Pricing ---------- */
+  .pricing {
+    padding: 88px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .pricing-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+  }
+
+  .price-card {
+    padding: 36px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+  }
+
+  .price-highlight {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-bg);
+    background: var(--color-accent);
+    padding: 5px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+
+  .price-figure {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .price-from {
+    font-size: 0.95rem;
+    color: var(--color-text-dim);
+  }
+
+  .price-amount {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--color-text);
+    line-height: 1;
+  }
+
+  .price-cadence {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+  }
+
+  .price-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .price-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.98rem;
+    color: var(--color-text);
+  }
+
+  .price-list li::before {
+    content: "✓";
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(124, 245, 192, 0.12);
+    color: var(--color-accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq {
+    padding: 88px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  }
+
+  .faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--color-text);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-toggle {
+    font-size: 1.4rem;
+    color: var(--color-accent);
+    transition: var(--transition-smooth);
+  }
+
+  .faq-item[open] .faq-toggle { transform: rotate(45deg); }
+
+  .faq-item p {
+    padding: 0 24px 22px;
+    font-size: 0.98rem;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact {
+    padding: 96px 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .contact-inner {
+    text-align: center;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .contact-inner h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: var(--color-text);
+  }
+
+  .contact-inner > p {
+    font-size: 1.12rem;
+  }
+
+  .contact-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .contact-area {
+    margin-top: 12px;
+    font-size: 0.9rem !important;
+    color: var(--color-text-dim) !important;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    margin-top: auto;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .footer-brand .brand-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 7px;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 0.88rem;
+    color: var(--color-text-dim);
+    flex-wrap: wrap;
+  }
+
+  .footer-links a:hover {
+    color: var(--color-accent);
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px) {
+    .pricing-inner { grid-template-columns: 1fr; gap: 36px; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links a:not(.btn) { display: none; }
+    .process-grid { grid-template-columns: 1fr; }
+    .section-head { margin-bottom: 36px; }
+  }
+</style>

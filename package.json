@@ -18,6 +18,9 @@
     "build:with-cms": "pnpm --filter with-cms build",
     "preview:with-cms": "pnpm --filter with-cms preview",
     "generate-types:with-cms": "pnpm --filter with-cms generate-types",
+    "dev:portfolio": "pnpm --filter portfolio dev",
+    "build:portfolio": "pnpm --filter portfolio build",
+    "preview:portfolio": "pnpm --filter portfolio preview",
     "dev": "pnpm --filter \"*\" --parallel dev",
     "build": "pnpm --filter \"*\" build",
     "preview": "pnpm --filter \"*\" --parallel preview"
@@ -27,7 +30,8 @@
   "license": "ISC",
   "type": "module",
   "dependencies": {
-    "astro": "^6.4.4"
+    "@astrojs/db": "^0.21.3",
+    "astro": "^6.4.8"
   },
   "volta": {
     "node": "24.16.0"
